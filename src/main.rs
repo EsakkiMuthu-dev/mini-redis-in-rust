@@ -3,7 +3,8 @@ use tokio::net::{TcpListener,TcpStream};
 
 #[tokio::main]
 async fn main() {
-    // // Connect to the mini-redis server
+    // Connect to the mini-redis 
+
     // let mut client = client::connect("127.0.0.1:6379").await?;
 
     // // Set a key-value pair
@@ -19,12 +20,16 @@ async fn main() {
     // println!();
     // println!("<------------>");
     // Ok(())
+    
     let listener = TcpListener::bind("127.0.0.1:6379").await.unwrap();
 
     loop {
-          // The second item contains the IP and port of the new connection.
-     let (socket,_port) = listener.accept().await.unwrap();
-     process(socket).await;
+
+        // The second item contains the IP and port of the new connection.
+
+        let (socket,_port) = listener.accept().await.unwrap();
+        process(socket).await;
+
     }
 }
 
